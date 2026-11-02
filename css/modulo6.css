@@ -1,0 +1,4 @@
+/* modulo6 · estilos propios de esta pantalla */
+@media (min-width: 700px) {
+  .pref { grid-template-columns: 1fr 1fr; }
+}

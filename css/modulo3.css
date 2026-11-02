@@ -1,0 +1,5 @@
+/* modulo3 · estilos propios de esta pantalla */
+.yn-name { color: var(--text); font-weight: 600; }
+.yn-opts { display: flex; gap: 0.5rem; }
+
+.yn { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }

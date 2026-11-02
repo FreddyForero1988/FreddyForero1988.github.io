@@ -1,0 +1,6 @@
+/* modulo1 · estilos propios de esta pantalla */
+.pillars, .stages { display: grid; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
+.key { border-left: 3px solid var(--primary); padding-left: 0.8rem; }
+.stage.is-done { border-left-color: var(--primary); }
+
+.stage-body .check { color: var(--text); font-weight: 600; }

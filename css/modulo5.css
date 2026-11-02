@@ -1,0 +1,16 @@
+/* modulo5 · estilos propios de esta pantalla */
+.sounds { display: grid; gap: 0.6rem; }
+.sound-name { font-weight: 700; color: var(--text); min-width: 5.5rem; }
+.audio-slot { display: flex; align-items: center; gap: 0.6rem; }
+.audio-note { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+.sound-sel { margin-left: auto; color: var(--muted); display: flex; align-items: center; gap: 0.5rem; }
+select { background: var(--panel-2); border: 2px solid var(--border); border-radius: 10px; padding: 0.35rem 0.6rem; }
+.fuentes { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.4rem; color: var(--muted); }
+.fuentes strong { color: var(--primary); margin-right: 0.3rem; }
+@media (max-width: 640px) {
+  .sound-sel { margin-left: 0; }
+}
+
+.sound { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.sound.is-correct { border-color: var(--primary); }
+.sound.is-wrong { border-color: var(--danger); }

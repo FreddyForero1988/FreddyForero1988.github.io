@@ -1,0 +1,19 @@
+/* modulo2 · estilos propios de esta pantalla */
+.concept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.7rem; align-items: stretch; }
+.dnd { display: grid; gap: 1.1rem; }
+.dnd-pool { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.8rem; border: 1px dashed rgba(255, 255, 255, 0.3); border-radius: 16px; min-height: 64px; }
+.chip { border: 1px solid var(--border); border-radius: 12px; background: var(--panel-2); padding: 0.45rem 0.8rem; font-size: 0.86rem; font-weight: 600; text-align: left; cursor: grab; }
+.chip:hover { border-color: var(--primary); }
+.chip.is-selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.chip.is-correct { border-color: var(--primary); color: var(--primary); }
+.chip.is-wrong { border-color: var(--danger); color: #ff8aa0; }
+.dnd-cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.cat { border: 1px solid var(--border); border-radius: 16px; padding: 0.9rem; background: rgba(0, 0, 0, 0.12); display: grid; gap: 0.4rem; align-content: start; }
+.cat h4 { color: var(--primary); }
+.cat p { font-size: 0.88rem; color: var(--text); }
+.cat-drop { display: flex; flex-wrap: wrap; gap: 0.4rem; min-height: 56px; padding: 0.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.04); }
+.cat.is-over, .dnd-pool.is-over { border-color: var(--accent); background: rgba(255, 212, 0, 0.06); }
+
+@media (max-width: 640px) {
+  .dnd-cats { grid-template-columns: minmax(0, 1fr); }
+}

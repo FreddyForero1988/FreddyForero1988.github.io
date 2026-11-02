@@ -1,0 +1,14 @@
+/* prueba · estilos propios de esta pantalla */
+.quiz { display: grid; gap: 1rem; }
+.quiz-list { display: grid; gap: 0.6rem; }
+.quiz-q { border: 0; margin: 0; padding: 0; display: grid; gap: 0.6rem; min-width: 0; }
+.quiz-q legend { color: var(--text); font-weight: 600; padding: 0; margin-bottom: 0.6rem; }
+.q-opt { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.6rem 0.8rem; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; color: var(--muted); }
+.q-opt:hover { border-color: var(--primary); }
+.q-opt.is-correct { border-color: var(--primary); color: var(--primary); background: rgba(57, 255, 136, 0.1); }
+.q-opt.is-wrong { border-color: var(--danger); color: #ff8aa0; background: rgba(255, 77, 109, 0.1); }
+.exp--q.is-answered { border-left-color: var(--primary); }
+.exp--q.is-bad { border-left-color: var(--danger); }
+.q-res { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 0.6rem 0.9rem; color: var(--text); }
+
+.exp--q .exp-body { padding-top: 0.5rem; }

@@ -1,0 +1,7 @@
+/* historia · estilos propios de esta pantalla */
+.order-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.order-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid var(--border); border-radius: 16px; background: rgba(0, 0, 0, 0.12); padding: 0.8rem 1rem; transition: border-color 0.2s, background 0.2s; }
+.order-text { color: var(--text); }
+.order-btns { display: flex; gap: 0.4rem; flex: none; }
+
+.order-list.is-done .order-item { border-color: var(--primary); background: rgba(57, 255, 136, 0.1); }

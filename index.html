@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuando las Máquinas aprenden a escuchar | ODC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos compartidos. Los de cada pantalla se cargan solos desde css/<pantalla>.css -->
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- core.js carga html/<pantalla>.html, css/<pantalla>.css y js/<pantalla>.js
+       en el orden de la lista PANTALLAS (dentro de core.js). -->
+  <script src="js/core.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="progress" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+
+  <header class="topbar">
+    <!-- EDITAR: reemplaza este recuadro por el logo de la universidad, por ejemplo:
+         <img src="assets/img/logo-udec.png" alt="Universidad de Cundinamarca"> -->
+    <div class="logo-slot">insertar logo</div>
+    <div class="topbar-actions">
+      <button type="button" class="icon-btn icon-btn--lg" id="helpBtn" aria-label="Ayuda" hidden>?</button>
+      <button type="button" class="icon-btn icon-btn--lg" id="menuBtn" aria-label="Abrir menú" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Aquí se insertan las pantallas -->
+    <div id="screens"></div>
+    <noscript><div class="panel"><p>Este sitio necesita JavaScript para funcionar.</p></div></noscript>
+  </main>
+
+  <nav class="controls" aria-label="Navegación entre pantallas">
+    <button type="button" class="ctl ctl--up" id="topBtn" aria-label="Ir al inicio de la pantalla">↑</button>
+    <div class="ctl-pair">
+      <button type="button" class="ctl" id="prevBtn" aria-label="Pantalla anterior">←</button>
+      <button type="button" class="ctl ctl--next" id="nextBtn" aria-label="Pantalla siguiente">→</button>
+    </div>
+  </nav>
+
+  <!-- Menú: se abre solo con el botón de tres líneas. Sus opciones se generan con las pantallas. -->
+  <dialog id="menuDlg" class="dlg dlg--menu" aria-labelledby="menuTitle">
+    <div class="dlg-card">
+      <div class="dlg-head"><h2 id="menuTitle">Menú interactivo</h2><button type="button" class="icon-btn" data-close aria-label="Cerrar">✕</button></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </dialog>
+
+  <dialog id="helpDlg" class="dlg" aria-labelledby="helpTitle">
+    <div class="dlg-card">
+      <div class="dlg-head"><h2 id="helpTitle">Ayuda</h2><button type="button" class="icon-btn" data-close aria-label="Cerrar">✕</button></div>
+      <p id="helpText"></p>
+    </div>
+  </dialog>
+
+  <dialog id="hintDlg" class="dlg" aria-labelledby="hintTitle">
+    <div class="dlg-card">
+      <div class="dlg-head"><h2 id="hintTitle">Pista</h2><button type="button" class="icon-btn" data-close aria-label="Cerrar">✕</button></div>
+      <p id="hintText"></p>
+    </div>
+  </dialog>
+</body>
+</html>

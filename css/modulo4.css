@@ -1,0 +1,7 @@
+/* modulo4 · estilos propios de esta pantalla */
+.fill-list, .fill-texts { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.8rem; color: var(--text); }
+.fill-texts { list-style: none; padding: 0; gap: 0.4rem; color: var(--muted); }
+.fill-texts .num { display: inline-grid; place-items: center; width: 26px; height: 26px; margin-right: 0.6rem; border-radius: 50%; background: var(--primary); color: #00170b; font-weight: 800; font-size: 0.85rem; }
+.fill-in { width: 4.2rem; margin-left: 0.4rem; text-align: center; padding: 0.35rem; border-radius: 10px; border: 2px solid var(--border); background: rgba(255, 255, 255, 0.06); }
+.fill-in.is-correct { border-color: var(--primary); }
+.fill-in.is-wrong { border-color: var(--danger); }

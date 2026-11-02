@@ -1,0 +1,5 @@
+/* conclusion · estilos propios de esta pantalla */
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+.checklist strong { color: var(--text); }
+
+.checklist .check { color: var(--muted); }
