@@ -1,7 +1,7 @@
 /* modulo3 · ruido impulsivo: sí o no (la respuesta correcta está en data-answer de cada fila) */
 (function () {
-  const { $, $$, setFeedback, LOREM } = ODC;
-  const FEEDBACK = { ok: LOREM, bad: LOREM };     // EDITAR: retroalimentación
+  const { $, $$, setFeedback, LOREM_3_ok, LOREM_3_bad } = ODC;
+  const FEEDBACK = { ok: LOREM_3_ok, bad: LOREM_3_bad };     // EDITAR: retroalimentación
   const act = $('#modulo3 [data-act="yn"]');
   const rows = $$(".yn", act);
   const fb = $(".feedback", act);

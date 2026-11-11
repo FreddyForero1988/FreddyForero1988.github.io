@@ -1,11 +1,11 @@
 /* modulo5 · identificar la fuente de cada sonido */
 (function () {
-  const { $, $$, setFeedback, LOREM } = ODC;
-  const FEEDBACK = { ok: LOREM, bad: LOREM };     // EDITAR: retroalimentación
+  const { $, $$, setFeedback, LOREM_5_ok, LOREM_5_bad } = ODC;
+  const FEEDBACK = { ok: LOREM_5_ok, bad: LOREM_5_bad };     // EDITAR: retroalimentación
 
   /* EDITAR: letra correcta (A–F) de cada sonido, en orden. Mientras haya valores null,
      «Verificar» avisa que faltan y no califica. Ejemplo: ["A", "C", "B", "D", "E", "F"] */
-  const RESPUESTAS = [null, null, null, null, null, null];
+  const RESPUESTAS = ["F", "E", "A", "B", "C", "D"];
 
   /* EDITAR: los audios se ponen en html/modulo5.html (data-src de cada .audio-slot),
      por ejemplo data-src="assets/audio/sonido1.mp3" */

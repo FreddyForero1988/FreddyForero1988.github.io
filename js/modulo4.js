@@ -1,7 +1,7 @@
 /* modulo4 · completar las oraciones digitando el número (respuesta en data-answer de cada casilla) */
 (function () {
-  const { $, $$, setFeedback, LOREM } = ODC;
-  const FEEDBACK = { ok: LOREM, bad: LOREM };     // EDITAR: retroalimentación
+  const { $, $$, setFeedback, LOREM_4_ok, LOREM_4_bad } = ODC;
+  const FEEDBACK = { ok: LOREM_4_ok, bad: LOREM_4_bad };     // EDITAR: retroalimentación
   const act = $('#modulo4 [data-act="fill"]');
   const inputs = $$(".fill-in", act);
   const fb = $(".feedback", act);

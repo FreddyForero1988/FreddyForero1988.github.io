@@ -1,7 +1,7 @@
 /* modulo2 · arrastrar y soltar (o tocar un concepto y luego la categoría) */
 (function () {
-  const { $, $$, setFeedback, LOREM } = ODC;
-  const FEEDBACK = { ok: LOREM, bad: LOREM };     // EDITAR: retroalimentación
+  const { $, $$, setFeedback, LOREM_2_ok, LOREM_2_bad } = ODC;
+  const FEEDBACK = { ok: LOREM_2_ok, bad: LOREM_2_bad };     // EDITAR: retroalimentación
   const act = $('#modulo2 [data-act="dnd"]');
   const pool = $("[data-pool]", act);
   const chips = $$(".chip", act);

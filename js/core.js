@@ -29,8 +29,20 @@ const PANTALLAS = [
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-  const LOREM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-
+  const LOREM = "Correcto, acabas de entender el concepto evaluado ";
+  const LOREM_2_ok = "Correcto, clasificaste los conceptos sin errores ";
+  const LOREM_2_bad = "Incorrecto, revisa los conceptos señalados ";
+  const LOREM_3_ok = "Correcto, encontraste los sonidos impulsivos ";
+  const LOREM_3_bad = "Incorrecto, revisa porque hay sonidos de la actividad para revisar ";
+  const LOREM_4_ok = "Muy bien!, entendiste el modulo ";
+  const LOREM_4_bad = "Incorrecto, vuelve a relacionar oraciones con los textos ";
+  const LOREM_5_ok = "Muy bien!, distinguiste cada uno de los sonidos, un modelo hace algo parecido ";
+  const LOREM_5_bad = "Incorrecto, vuelve a escuchar los audios algunos no corresponden a la letra escogida ";
+  const LOREM_pru_ok = "Excelente!, completaste la prueba con exito ";
+  const LOREM_pru_bad = "Incorrecto, vuelve a intentar la prueba despues de dar clic en reintentar   ";
+  const LOREM_pre_ok = "Respuesta Correcta!";
+  const LOREM_pre_bad = "Respuesta Incorrecta!";
+  
   function setFeedback(box, text, tone) {
     if (!box) return;
     box.textContent = text || "";
@@ -40,7 +52,7 @@ const PANTALLAS = [
   }
 
   // Utilidades para los archivos js/<pantalla>.js
-  window.ODC = { $, $$, setFeedback, LOREM, PANTALLAS };
+  window.ODC = { $, $$, setFeedback, LOREM, LOREM_2_ok, LOREM_2_bad, LOREM_3_ok, LOREM_3_bad, LOREM_4_ok, LOREM_4_bad, LOREM_5_ok, LOREM_5_bad, LOREM_pru_ok, LOREM_pru_bad, LOREM_pre_ok, LOREM_pre_bad, PANTALLAS };
 
   const holder = $("#screens");
   const progressBar = $("#progressBar");
@@ -166,38 +178,75 @@ const PANTALLAS = [
   });
 
   /* ---------- avatar (embed de HeyGen) ---------- */
+  
   function resetAvatars() {
-    $$(".avatar").forEach((a) => {
-      const stage = $(".avatar-stage", a);
-      $$("iframe, .avatar-note", stage).forEach((n) => n.remove());
-      $(".avatar-ph", stage).hidden = false;
-    });
+      $$(".avatar").forEach((a) => {
+        const stage = $(".avatar-stage", a);
+
+        $$("iframe, .avatar-note, .avatar-preview", stage)
+          .forEach((n) => n.remove());
+
+        $(".avatar-ph", stage).hidden = true;
+
+        // Recuperar la miniatura
+        const url = (a.dataset.video || "").trim();
+        const videoId = url.split("/shorts/")[1]?.split(/[?&]/)[0];
+
+        if (videoId) {
+          const img = document.createElement("img");
+          img.className = "avatar-preview";
+          img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+          img.alt = "Vista previa del avatar";
+          stage.appendChild(img);
+        }
+      });
   }
+
   function playAvatar(a) {
-    const stage = $(".avatar-stage", a);
-    const url = (a.dataset.video || "").trim();
-    $$("iframe, .avatar-note", stage).forEach((n) => n.remove());
-    const ph = $(".avatar-ph", stage);
-    if (!/^https?:\/\//i.test(url)) {
-      const note = document.createElement("div");
-      note.className = "avatar-ph avatar-note";
-      note.innerHTML = "<span>insertar link</span>";
-      stage.appendChild(note);
-      return;
-    }
-    ph.hidden = true;
-    const f = document.createElement("iframe");
-    f.src = url;
-    f.title = "Video del avatar";
-    f.allow = "encrypted-media; fullscreen; autoplay";
-    f.allowFullscreen = true;
-    f.referrerPolicy = "strict-origin-when-cross-origin";
-    stage.appendChild(f);
+      const stage = $(".avatar-stage", a);
+      const url = (a.dataset.video || "").trim();
+
+      $$("iframe, .avatar-note, .avatar-preview", stage)
+        .forEach((n) => n.remove());
+
+      const ph = $(".avatar-ph", stage);
+
+      // Extraer ID del YouTube Short
+      const videoId = url.split("/shorts/")[1]?.split(/[?&]/)[0];
+
+      if (!videoId) {
+        const note = document.createElement("div");
+        note.className = "avatar-ph avatar-note";
+        note.textContent = "No se pudo cargar el video.";
+        stage.appendChild(note);
+        return;
+      }
+
+      ph.hidden = true;
+
+      const f = document.createElement("iframe");
+
+      f.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&rel=0&playsinline=1&modestbranding=1`;
+      f.title = "Video del avatar";
+      f.allow = "encrypted-media; fullscreen; autoplay";
+      f.allowFullscreen = true;
+      f.referrerPolicy = "strict-origin-when-cross-origin";
+
+      stage.appendChild(f);
   }
+
+  // Cargar miniaturas al iniciar
+  resetAvatars();
+
+  // Eventos de reproducción y repetición
   document.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-avatar]");
-    if (b) playAvatar(b.closest(".avatar")); // «Repetir» vuelve a cargar el video desde el inicio
+      const b = e.target.closest("[data-avatar]");
+
+      if (b) {
+        playAvatar(b.closest(".avatar"));
+      }
   });
+
 
   /* ---------- componentes compartidos ---------- */
   // Desplegables (se abren dentro del mismo cuadro)

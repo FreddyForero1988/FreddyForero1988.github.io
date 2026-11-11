@@ -59,7 +59,7 @@ button { cursor: pointer; }
 .logo-slot {
   min-width: 120px; height: 48px; padding: 0 0.9rem;
   display: grid; place-items: center;
-  border: 2px dashed rgba(255, 255, 255, 0.3); border-radius: 12px;
+  /* border: 2px dashed rgba(255, 255, 255, 0.3); border-radius: 12px; */
   color: var(--muted); font-size: 0.85rem; font-weight: 600;
 }
 .logo-slot img, .topbar img { height: 48px; width: auto; display: block; }
@@ -165,7 +165,7 @@ ul.rich strong, .key strong { color: var(--text); }
 .topic-empty { color: var(--muted); font-style: italic; }
 .topic-panel { display: grid; gap: 0.7rem; }
 .topic-panel p { max-width: 75ch; }
-.img-slot { aspect-ratio: 1; display: grid; place-items: center; text-align: center; border: 2px dashed rgba(255, 255, 255, 0.3); border-radius: 18px; color: var(--muted); font-weight: 600; padding: 0.5rem; }
+.img-slot { aspect-ratio: 1; display: grid; place-items: center; text-align: center; padding: 0.5rem; }
 /* ---------- actividades ---------- */
 .activity {
   position: relative; display: grid; gap: 0.9rem;

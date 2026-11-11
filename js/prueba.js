@@ -1,10 +1,10 @@
 /* prueba · prueba de conocimientos (10 preguntas, aprueba con 8) */
 (function () {
-  const { $, $$, setFeedback, LOREM } = ODC;
+  const { $, $$, setFeedback, LOREM_pru_ok, LOREM_pru_bad, LOREM_pre_ok, LOREM_pre_bad } = ODC;
   const PASS_SCORE = 8;
   const FEEDBACK = {                              // EDITAR: retroalimentación
-    perQuestion: { ok: LOREM, bad: LOREM },       // inmediata, después de responder cada pregunta
-    final: { approved: LOREM, failed: LOREM }     // al pulsar «Ver Resultados»
+    perQuestion: { ok: LOREM_pre_ok, bad: LOREM_pre_bad },       // inmediata, después de responder cada pregunta
+    final: { approved: LOREM_pru_ok, failed: LOREM_pru_bad }     // al pulsar «Ver Resultados»
   };
   /* La respuesta correcta de cada pregunta está en data-answer de cada .quiz-q (0 = primera opción) */
 
